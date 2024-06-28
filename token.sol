@@ -37,10 +37,10 @@ contract SupermarketLoyaltyPoints is ERC20, Ownable {
         _burn(from, amount);
     }
 
- function transfer(address to, uint256 amount) public override returns (bool) {
-        return super.transfer(to, amount);
+ function transferPoints( address to, uint256 amount) public {
+         transfer( to, amount);
     }
-    function transferFrom(address from, address to, uint256 amount) public override returns (bool) {
-        return super.transferFrom(from, to, amount);
+    function transferPointsFrom(address from, address to, uint256 amount) public {
+        transferFrom(from, to, amount);
     }
 }
