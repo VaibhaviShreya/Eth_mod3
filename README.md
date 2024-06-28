@@ -61,12 +61,11 @@ contract SupermarketLoyaltyPoints is ERC20, Ownable {
         _burn(from, amount);
     }
 
- function transfer(address to, uint256 amount) public override returns (bool) {
-        return super.transfer(to, amount);
+function transferPoints( address to, uint256 amount) public {
+         transfer( to, amount);
     }
-
-    function transferFrom(address from, address to, uint256 amount) public override returns (bool) {
-        return super.transferFrom(from, to, amount);
+    function transferPointsFrom(address from, address to, uint256 amount) public {
+        transferFrom(from, to, amount);
     }
 }
 ```
@@ -106,12 +105,12 @@ Follow these steps to deploy and interact with the contract:
 
 - **transferPoints**: Transfer loyalty points to another customer.
   ```solidity
-   function transfer(address to, uint256 amount) public override returns (bool)
+   function transferPoints(address to, uint256 amount) public
   ```
 
 - **transferFrom**: Override the standard ERC20 `transferFrom` function to support loyalty points transfers.
   ```solidity
-  function transferFrom(address from, address to, uint256 amount) public override returns (bool);
+  function transferPointsFrom(address from, address to, uint256 amount) public;
   ```
 
 ## Help
